@@ -6,7 +6,6 @@ interface FormProps {
   taskDescription: string;
   setTaskDescription: (value: string) => void;
   isEditing: boolean;
-  setIsModalOpen: (value: boolean) => void;
   setPriority: (value: "low" | "medium" | "high") => void;
   priority: "low" | "medium" | "high";
   handleCancel: () => void;
@@ -20,7 +19,6 @@ const Form = ({
   setTaskDescription,
   handleReset,
   isEditing,
-  setIsModalOpen,
   setPriority,
   priority,
   handleCancel,

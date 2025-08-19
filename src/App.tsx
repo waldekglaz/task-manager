@@ -134,7 +134,6 @@ function App() {
           setTaskTitle={setTaskTitle}
           taskDescription={taskDescription}
           setTaskDescription={setTaskDescription}
-          setIsModalOpen={setIsModalOpen}
           isEditing={!!editingTaskId}
           setPriority={setPriority}
           priority={priority}
