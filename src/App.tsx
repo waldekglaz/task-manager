@@ -114,6 +114,7 @@ function App() {
     setTaskTitle("");
     setTaskDescription("");
     setEditingTaskId(null);
+    setIsModalOpen(false);
   };
 
   return (
@@ -128,6 +129,7 @@ function App() {
         <Form
           handleReset={handleReset}
           handleSubmit={handleSubmit}
+          handleCancel={handleCancel}
           taskTitle={taskTitle}
           setTaskTitle={setTaskTitle}
           taskDescription={taskDescription}

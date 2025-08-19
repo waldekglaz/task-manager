@@ -9,6 +9,7 @@ interface FormProps {
   setIsModalOpen: (value: boolean) => void;
   setPriority: (value: "low" | "medium" | "high") => void;
   priority: "low" | "medium" | "high";
+  handleCancel: () => void;
 }
 
 const Form = ({
@@ -22,6 +23,7 @@ const Form = ({
   setIsModalOpen,
   setPriority,
   priority,
+  handleCancel,
 }: FormProps) => {
   return (
     <form action="" onSubmit={(e) => handleSubmit(e)}>
@@ -55,7 +57,7 @@ const Form = ({
       <button type="reset" onClick={() => handleReset()}>
         Reset
       </button>
-      <button type="button" onClick={() => setIsModalOpen(false)}>
+      <button type="button" onClick={() => handleCancel()}>
         Cancel
       </button>
     </form>
