@@ -54,6 +54,10 @@
   p.completed {
     opacity: 0.2;
   }
+  .due-now {
+    color: #bd3039;
+    animation: pulse 1s linear 0s 5;
+  }
 }
 
 form {
@@ -94,6 +98,15 @@ form {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
   }
 }
 

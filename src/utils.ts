@@ -7,4 +7,25 @@ const dateFormat = (dateToFormat: Date) => {
   return formattedDate;
 };
 
-export default dateFormat;
+const dueDateClass = (dueDate: Date) => {
+  //   if (!(dueDate instanceof Date) || isNaN(dueDate.getTime())) {
+  //     return "";
+  //   }
+  const myDueDate = new Date(dueDate);
+  const now = new Date();
+  const nowMs = now.getTime();
+  const dueDateMs = myDueDate.getTime();
+
+  // one day in ms
+
+  const oneDayMs = 24 * 60 * 60 * 1000;
+  const isWithinOneDay = Math.abs(nowMs - dueDateMs) <= oneDayMs;
+  console.log(isWithinOneDay);
+  if (isWithinOneDay) {
+    return "due-now";
+  } else {
+    return "not-due";
+  }
+};
+
+export { dateFormat, dueDateClass };

@@ -2,7 +2,7 @@ import type { TaskListProps } from "../types";
 import { FcLowPriority } from "react-icons/fc";
 import { FcMediumPriority } from "react-icons/fc";
 import { FcHighPriority } from "react-icons/fc";
-import dateFormat from "../utils";
+import { dateFormat, dueDateClass } from "../utils";
 import { TiTick, TiTimes } from "react-icons/ti";
 import { AiTwotoneEdit } from "react-icons/ai";
 import { FaTrashAlt } from "react-icons/fa";
@@ -31,7 +31,13 @@ const TaskList: React.FC<TaskListProps> = ({
                 {task.priority === "high" && <FcHighPriority />}
               </div>
               <div className="due">
-                <p>Due: {dateFormat(task.dueDate)}</p>
+                <p
+                  className={`${dueDateClass(task.dueDate)} ${
+                    task.isCompleted && "completed"
+                  }`}
+                >
+                  Due: {dateFormat(task.dueDate)}
+                </p>
               </div>
             </div>
 
