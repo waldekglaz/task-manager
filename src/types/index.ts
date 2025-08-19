@@ -4,6 +4,7 @@ interface ITask {
   isCompleted: boolean;
   taskId: string; // Using string to accommodate UUIDs
   priority: "low" | "medium" | "high";
+  dueDate: Date;
 }
 
 interface TaskListProps {

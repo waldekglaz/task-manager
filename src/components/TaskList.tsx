@@ -2,6 +2,7 @@ import type { TaskListProps } from "../types";
 import { FcLowPriority } from "react-icons/fc";
 import { FcMediumPriority } from "react-icons/fc";
 import { FcHighPriority } from "react-icons/fc";
+import dateFormat from "../utils";
 
 const TaskList: React.FC<TaskListProps> = ({
   tasks,
@@ -25,6 +26,9 @@ const TaskList: React.FC<TaskListProps> = ({
                 {task.priority === "low" && <FcLowPriority />}
                 {task.priority === "medium" && <FcMediumPriority />}
                 {task.priority === "high" && <FcHighPriority />}
+              </div>
+              <div className="due">
+                <p>Due: {dateFormat(task.dueDate)}</p>
               </div>
             </div>
 

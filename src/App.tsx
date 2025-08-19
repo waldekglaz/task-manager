@@ -36,6 +36,7 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null);
   const [priority, setPriority] = useState<"low" | "medium" | "high">("medium");
+  const [dueDate, setDueDate] = useState<Date>(new Date());
 
   useEffect(() => {
     try {
@@ -71,6 +72,7 @@ function App() {
                 title: taskTitle,
                 description: taskDescription || undefined,
                 priority,
+                dueDate,
               }
             : task
         )
@@ -83,6 +85,7 @@ function App() {
         isCompleted: false,
         taskId: uuidv4(),
         priority,
+        dueDate,
       };
       setTasks((prevTasks) => [newTask, ...prevTasks]);
     }
@@ -91,11 +94,14 @@ function App() {
     setTaskDescription("");
     setEditingTaskId(null);
     setIsModalOpen(false);
+    setDueDate(new Date());
   };
 
   const handleReset = () => {
     setTaskTitle("");
     setTaskDescription("");
+    setDueDate(new Date());
+    setPriority("medium");
   };
 
   const handleDelete = (taskId: string) => {
@@ -107,6 +113,7 @@ function App() {
     setTaskDescription(task.description || "");
     setEditingTaskId(task.taskId);
     setPriority(task.priority);
+    setDueDate(dueDate);
     setIsModalOpen(true);
   };
 
@@ -137,6 +144,8 @@ function App() {
           isEditing={!!editingTaskId}
           setPriority={setPriority}
           priority={priority}
+          dueDate={dueDate}
+          setDueDate={setDueDate}
         />
       </Modal>
 

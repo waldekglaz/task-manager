@@ -1,3 +1,5 @@
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 interface FormProps {
   handleReset: () => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -9,6 +11,8 @@ interface FormProps {
   setPriority: (value: "low" | "medium" | "high") => void;
   priority: "low" | "medium" | "high";
   handleCancel: () => void;
+  dueDate: any;
+  setDueDate: (value: any) => void;
 }
 
 const Form = ({
@@ -22,6 +26,8 @@ const Form = ({
   setPriority,
   priority,
   handleCancel,
+  dueDate,
+  setDueDate,
 }: FormProps) => {
   return (
     <form action="" onSubmit={(e) => handleSubmit(e)}>
@@ -51,6 +57,13 @@ const Form = ({
         <option value="medium">Medium</option>
         <option value="high">High</option>
       </select>
+      <DatePicker
+        selected={dueDate}
+        onChange={(date) => setDueDate(date)}
+        showTimeSelect
+        dateFormat="Pp"
+      />
+
       <button type="submit">{isEditing ? "Save Changes" : "Add Task"}</button>
       <button type="reset" onClick={() => handleReset()}>
         Reset
