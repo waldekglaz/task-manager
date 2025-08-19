@@ -3,6 +3,9 @@ import { FcLowPriority } from "react-icons/fc";
 import { FcMediumPriority } from "react-icons/fc";
 import { FcHighPriority } from "react-icons/fc";
 import dateFormat from "../utils";
+import { TiTick, TiTimes } from "react-icons/ti";
+import { AiTwotoneEdit } from "react-icons/ai";
+import { FaTrashAlt } from "react-icons/fa";
 
 const TaskList: React.FC<TaskListProps> = ({
   tasks,
@@ -33,12 +36,16 @@ const TaskList: React.FC<TaskListProps> = ({
             </div>
 
             <button onClick={() => handleComplete(task.taskId)}>
-              {`Mark as ${task.isCompleted ? "to do" : "completed"}`}
+              {task.isCompleted ? <TiTimes /> : <TiTick />}
             </button>
             {!task.isCompleted && (
-              <button onClick={() => handleEdit(task)}>Edit</button>
+              <button onClick={() => handleEdit(task)}>
+                <AiTwotoneEdit />
+              </button>
             )}
-            <button onClick={() => handleDelete(task.taskId)}>Delete</button>
+            <button onClick={() => handleDelete(task.taskId)}>
+              <FaTrashAlt />
+            </button>
           </div>
         </li>
       ))}
