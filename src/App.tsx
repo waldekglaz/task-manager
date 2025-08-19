@@ -150,7 +150,7 @@ function App() {
         />
       )}
       {!isModalOpen && (
-        <button onClick={() => handleCancel()} className="open-form-btn">
+        <button onClick={() => setIsModalOpen(true)} className="open-form-btn">
           +
         </button>
       )}
