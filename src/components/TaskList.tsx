@@ -15,8 +15,8 @@ const TaskList: React.FC<TaskListProps> = ({
 }) => {
   return (
     <ul>
-      {tasks.map((task, index) => (
-        <li key={index}>
+      {tasks.map((task) => (
+        <li key={task.taskId}>
           <div className="task">
             <div className="text-wrapper">
               <h3 className={task.isCompleted ? "completed" : undefined}>

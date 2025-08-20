@@ -1,3 +1,21 @@
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+.controls .filters {
+  display: flex;
+  gap: 0.5rem;
+}
+.controls .filters button.active {
+  background-color: #3cb371;
+}
+.controls .sort select {
+  padding: 0.25rem 0.5rem;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
